@@ -49,7 +49,7 @@ export default function StyleSelector({ value, onChange }: StyleSelectorProps) {
               />
             </div>
             
-            <span className={`text-sm font-medium mt-2 transition-colors ${
+            <span className={`text-xs font-normal mt-1 transition-colors ${
               isSelected ? 'text-primary' : 'text-muted-foreground'
             }`}>
               {style.name}

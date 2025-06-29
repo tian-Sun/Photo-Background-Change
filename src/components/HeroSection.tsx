@@ -60,7 +60,7 @@ export default function HeroSection() {
                     </div>
                     <div className="aspect-square rounded-lg overflow-hidden max-w-[140px] max-h-[140px] mx-auto">
                       <Image
-                        src="/demo/person.png"
+                        src="/homedemo/person.png"
                         alt="Before 1"
                         width={240}
                         height={240}
@@ -108,7 +108,7 @@ export default function HeroSection() {
                   <div className="flex-1 flex flex-col justify-center">
                     <div className="aspect-square rounded-lg overflow-hidden max-w-[240px] max-h-[240px] mx-auto">
                       <Image
-                        src="/demo/result.jpg"
+                        src="/homedemo/result.jpg"
                         alt="After transformation"
                         width={300}
                         height={300}
