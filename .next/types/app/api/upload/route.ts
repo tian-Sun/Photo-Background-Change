@@ -1,4 +1,4 @@
-// File: /Users/xyw/Tian/Real_PM/MinecraftMe-AI-Photo-Blender/src/app/api/upload/route.ts
+// File: F:\project\WebTools\008_headshotGenerator\Photo-Background-Change\src\app\api\upload\route.ts
 import * as entry from '../../../../../src/app/api/upload/route.js'
 import type { NextRequest } from 'next/server.js'
 
