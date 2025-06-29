@@ -66,12 +66,12 @@ export default function Header() {
             >
               <Image
                 src="/logo.png"
-                alt="MinecraftStyle.online"
+                alt="aiheadshotgen.com"
                 width={32}
                 height={32}
                 className="rounded-md"
               />
-              <span className="text-xl font-bold text-foreground">MinecraftStyle.online</span>
+              <span className="text-xl font-bold text-foreground">aiheadshotgen.com</span>
             </Link>
           </div>
 
