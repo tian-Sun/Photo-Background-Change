@@ -89,7 +89,7 @@ const ImageUpload = forwardRef<{
     
     const newFiles = Array.from(files);
     if (newFiles.length + uploadedImages.length > maxImages) {
-      onError?.(`最多只能上传 ${maxImages} 张图片`);
+      onError?.(`Only ${maxImages} images can be uploaded`);
       return;
     }
 
