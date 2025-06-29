@@ -9,47 +9,47 @@ import { Copy } from 'lucide-react';
 const examples = [
   {
     id: 1,
-    image: '/gallery/6.png',
+    image: '/gallery/1.jpg',
     description: 'Minecraft Pixel Art, a vibrant orange van is parked on a rocky hillside. The van is adorned with a white roof, adorned with an orange patch, adding a pop of color to the scene.',
   },
   {
     id: 2,
-    image: '/gallery/4.png',
+    image: '/gallery/2.jpg',
     description: 'Minecraft Pixel Art, a cartoon-like scene features a young man with short brown hair, dressed in a white t-shirt, brown pants, and brown boots, standing on a cliff overlooking a valley.',
   },
   {
     id: 3,
-    image: '/gallery/3.png',
+    image: '/gallery/3.jpg',
     description: 'Minecraft Pixel Art, a young boy is riding a bicycle on a wet, rainy day. The boy is dressed in a bright orange shirt, gray pants, and a red backpack.',
   },
   {
     id: 4,
-    image: '/gallery/2.png',
+    image: '/gallery/4.jpg',
     description: 'Minecraft Pixel Art, Captured at eye-level on a vibrant day, a man in a blue shirt, and a straw hat is standing in a field of wheat.',
   },
   {
     id: 5,
-    image: '/gallery/5.png',
+    image: '/gallery/5.jpg',
     description: 'Minecraft Pixel Art: A bustling village square on a sunny afternoon. A boy in a red scarf and green jacket rides a vintage bicycle through the cobblestone streets.',
   },
   {
     id: 6,
-    image: '/gallery/1.png',
+    image: '/gallery/6.jpg',
     description: 'Minecraft Pixel Art: A young girl with short black hair and a yellow raincoat stands under a red umbrella in the middle of a cobblestone street.',
   },
   {
     id: 7,
-    image: '/gallery/8.png',
+    image: '/gallery/7.jpg',
     description: 'Minecraft Pixel Art: A narrow mountain path shrouded in rain and mist. A traveler in a wide-brimmed straw hat and a long green cloak leans on a wooden staff.',
   },
   {
     id: 8,
-    image: '/gallery/9.png',
+    image: '/gallery/8.jpg',
     description: 'Minecraft Pixel Art: A vibrant spring meadow at dawn. A young woman in a lavender dress and straw hat is painting on an easel under a large cherry blossom tree.',
   },
   {
     id: 9,
-    image: '/gallery/10.png',
+    image: '/gallery/9.jpg',
     description: 'Minecraft Pixel Art: A young boy with tousled black hair sits on a grassy hill under a dark, star-filled sky. He wears a light blue sweater and brown pants.',
   },
 ];
