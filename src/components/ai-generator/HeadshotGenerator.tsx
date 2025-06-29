@@ -99,7 +99,7 @@ export default function HeadshotGenerator() {
   const canGenerate = session && hasUploadedImage && selectedStyle && generationStatus !== 'generating';
 
   return (
-    <div className="container mx-auto px-4 py-6 max-w-5xl">
+    <div id="headshot-generator" className="container mx-auto px-4 py-6 max-w-5xl">
       <Card className="p-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 min-h-[500px]">
           {/* 左侧配置面板 */}

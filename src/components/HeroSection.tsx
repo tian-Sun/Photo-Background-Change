@@ -9,12 +9,18 @@ import { useLanguage } from '@/contexts/LanguageContext';
 export default function HeroSection() {
   const { t } = useLanguage();
 
-  // 回到顶部函数
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+  // 滚动到AI头像生成器函数
+  const scrollToGenerator = () => {
+    const element = document.getElementById('headshot-generator');
+    
+    if (element) {
+      // 使用更兼容的滚动方法
+      const elementTop = element.offsetTop;
+      window.scrollTo({
+        top: elementTop - 80, // 减去80px给header留空间
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
@@ -39,7 +45,7 @@ export default function HeroSection() {
             </div>
 
             <Button
-              onClick={scrollToTop}
+              onClick={scrollToGenerator}
               className="bg-gradient-to-r from-[#7c3aed] via-[#a855f7] to-[#c084fc] hover:shadow-glow transition-all duration-300 text-white px-8 py-6 text-lg border-0"
               style={{ backgroundImage: 'linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%)' }}
             >
