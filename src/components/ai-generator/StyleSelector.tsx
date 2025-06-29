@@ -10,17 +10,17 @@ interface StyleSelectorProps {
 const styles = [
   {
     id: 'professional',
-    name: '专业风格',
+    name: 'Business',
     image: '/demo/person.png',
   },
   {
     id: 'casual',
-    name: '休闲风格',
+    name: 'Classic',
     image: '/demo/result.png',
   },
   {
     id: 'artistic',
-    name: '艺术风格',
+    name: 'Workplace',
     image: '/demo/result2.png',
   }
 ];
