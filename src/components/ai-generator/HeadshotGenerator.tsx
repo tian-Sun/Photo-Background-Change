@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
+import { Download } from 'lucide-react';
 import ImageUpload from './ImageUpload';
 import StyleSelector from './StyleSelector';
 import AspectRatioSelector from './AspectRatioSelector';
@@ -181,15 +182,15 @@ export default function HeadshotGenerator() {
                   </div>
                   <div className="mt-4 text-center">
                     <Button
-                      variant="outline"
                       onClick={() => {
                         const link = document.createElement('a');
                         link.href = result.url;
                         link.download = `headshot-${result.style}-${Date.now()}.png`;
                         link.click();
                       }}
-                      className="w-full"
+                      className="w-full h-10 text-base bg-primary hover:bg-primary/90 text-primary-foreground"
                     >
+                      <Download className="w-4 h-4 mr-2" />
                       Download Image
                     </Button>
                   </div>
