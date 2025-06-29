@@ -11,7 +11,7 @@ const STYLE_PROMPTS = {
   
   classic: "Transform this person into a professional corporate head-shot: change clothing to a fitted dark blazer over a crisp white shirt, replace background with a softly blurred modern office interior, use neutral daylight, keep the exact same face, hairstyle, pose and camera angle, preserve natural skin texture, DSLR-level realism.",
   
-  workplace: "Transform this female into a professional corporate head-shot: change clothing to a school-uniform-style blazer in charcoal gray with a narrow lapel, paired with a light-blue pinpoint shirt, replace background with a softly blurred modern office interior, use neutral daylight, keep the exact same face, hairstyle, pose and camera angle, preserve natural skin texture, DSLR-level realism."
+  workplace: "Transform this person into a professional corporate head-shot: change clothing to a school-uniform-style blazer in charcoal gray with a narrow lapel, paired with a light-blue pinpoint shirt, replace background with a softly blurred modern office interior, use neutral daylight, keep the exact same face, hairstyle, pose and camera angle, preserve natural skin texture, DSLR-level realism."
 };
 
 // 有效的风格类型
