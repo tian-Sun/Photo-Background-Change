@@ -95,10 +95,18 @@ export async function POST(request: Request) {
       prompt: prompt
     };
 
-    // 只有当aspect_ratio不是auto时才添加到请求中
-    if (selectedAspectRatio !== 'auto') {
+    // 处理aspect_ratio参数：auto转换为match_input_image
+    if (selectedAspectRatio === 'auto') {
+      input.aspect_ratio = 'match_input_image';
+    } else {
       input.aspect_ratio = selectedAspectRatio;
     }
+
+    console.log("📤 实际传递给API的参数:", {
+      aspect_ratio: input.aspect_ratio,
+      has_prompt: !!input.prompt,
+      has_input_image: !!input.input_image
+    });
 
     const output = await replicate.run(
       "black-forest-labs/flux-kontext-pro",
