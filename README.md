@@ -1,218 +1,135 @@
-# MinecraftMe AI Photo Blender
+# AI Professional Headshot Generator
 
-Transform your photos into Minecraft-style pixelated art using AI!!
+一个基于AI的专业头像生成工具，使用 Next.js、TypeScript 和 Flux Kontext Pro API 构建。
 
-## Features
+## 功能特点
 
-- 📸 **Photo Conversion**: Upload any photo and convert it to Minecraft style
-- 🔐 **Google OAuth Authentication**: Secure login with Google accounts
-- 📊 **Daily Usage Limits**: Track and limit daily usage per user
-- ⚡ **Real-time Processing**: See your conversion status in real-time
-- 📱 **Responsive UI**: Works on desktop and mobile devices
+- 🎨 **三种专业风格**: 商务、经典、职场
+- 📐 **多种尺寸比例**: 自动、1:1、4:5、3:4、2:3、5:4
+- 🔒 **用户认证**: Google OAuth 登录
+- 💳 **使用限制**: 每日免费次数 + 付费订阅
+- 🎯 **AI驱动**: 使用 Flux Kontext Pro 生成高质量职业头像
+- 📱 **响应式设计**: 支持桌面和移动设备
 
-## Environment Setup
+## 技术栈
 
-### 1. Copy Environment File
+- **前端**: Next.js 15, React 18, TypeScript, Tailwind CSS
+- **后端**: Next.js API Routes, Replicate API
+- **认证**: NextAuth.js with Google Provider
+- **数据库**: Supabase (PostgreSQL)
+- **AI模型**: black-forest-labs/flux-kontext-pro
+- **部署**: Vercel
+
+## 环境配置
+
+创建 `.env.local` 文件并配置以下环境变量：
+
 ```bash
-cp .env.local.example .env.local
-```
+# Replicate API Configuration
+REPLICATE_API_TOKEN=your_replicate_api_token_here
 
-### 2. Configure Required Variables
-
-#### Replicate API
-Get your API token from [Replicate](https://replicate.com/account/api-tokens):
-```bash
-REPLICATE_API_TOKEN=r8_your_actual_token_here
-```
-
-#### NextAuth Configuration
-Generate a random secret:
-```bash
-NEXTAUTH_SECRET=your_random_secret_at_least_32_characters
+# NextAuth Configuration
+NEXTAUTH_SECRET=your_nextauth_secret_here
 NEXTAUTH_URL=http://localhost:3000
+
+# Google OAuth Configuration
+GOOGLE_CLIENT_ID=your_google_client_id_here
+GOOGLE_CLIENT_SECRET=your_google_client_secret_here
+
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url_here
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key_here
 ```
 
-#### Google OAuth
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select existing one
-3. Enable Google+ API
-4. Create OAuth 2.0 credentials
-5. Set authorized redirect URI: `http://localhost:3000/api/auth/callback/google`
-```bash
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
+## 数据库设置
+
+在 Supabase 中执行 `database/schema.sql` 文件来创建必要的数据表：
+
+```sql
+-- 执行 database/schema.sql 中的所有 SQL 语句
 ```
 
-#### Supabase Database
-1. Create account at [Supabase](https://supabase.com/)
-2. Create a new project
-3. Go to Settings → API
-4. Copy your project URL and anon key
+## 本地开发
+
+1. 克隆项目
 ```bash
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+git clone <repository-url>
+cd Photo-Background-Change
 ```
 
-### 3. Setup Database
-1. In your Supabase dashboard, go to SQL Editor
-2. Copy and run the SQL script from `database/schema.sql`
-3. This will create the `user_usage` table for tracking daily limits
-
-## Installation
-
+2. 安装依赖
 ```bash
-# Install dependencies
 npm install
+```
 
-# Setup environment variables
-cp .env.local.example .env.local
-# Edit .env.local with your actual values
+3. 配置环境变量（见上方）
 
-# Run development server
+4. 启动开发服务器
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the application.
+5. 打开浏览器访问 `http://localhost:3000`
 
-## Usage
+## API 接口
 
-1. **Sign In**: Click "Sign in with Google" to authenticate
-2. **Upload Photo**: Drag and drop or click to upload your photo
-3. **Wait for Processing**: Watch the real-time processing status
-4. **Download Result**: Download your Minecraft-style image
+### POST /api/generate-headshot
 
-## Tech Stack
+生成专业头像的主要接口。
 
-- **Next.js 14**: React framework with App Router
-- **TypeScript**: Type-safe development
-- **Tailwind CSS**: Utility-first styling
-- **NextAuth.js**: Authentication
-- **Supabase**: Database and backend services
-- **Replicate**: AI image processing
-- **SWR**: Data fetching and caching
-
-## Project Structure
-
-```
-src/
-├── app/                 # Next.js App Router pages
-├── components/          # Reusable UI components
-├── lib/                 # Utility functions and configurations
-├── contexts/            # React contexts
-└── types/               # TypeScript type definitions
+**请求参数:**
+```typescript
+{
+  input_image: string;           // 图片的base64或URL
+  style: 'business' | 'classic' | 'workplace'; // 风格选择
+  aspect_ratio?: 'auto' | '1:1' | '4:5' | '3:4' | '2:3' | '5:4'; // 尺寸比例
+}
 ```
 
-## Database Schema
-
-The application uses a simple `user_usage` table to track daily usage limits:
-
-```sql
-user_usage (
-  id: SERIAL PRIMARY KEY,
-  user_email: VARCHAR(255),
-  usage_count: INTEGER,
-  usage_date: DATE,
-  created_at: TIMESTAMP,
-  updated_at: TIMESTAMP
-)
+**响应格式:**
+```typescript
+{
+  success: boolean;
+  result?: string;               // 生成的图片URL或base64
+  error?: string;                // 错误信息
+  message?: string;              // 额外信息
+}
 ```
 
-## 🚀 Deployment
+### GET/POST /api/remaining
 
-### Netlify (Recommended)
+获取和更新用户剩余使用次数。
 
-1. **Connect Repository**
-   - Link your GitHub repository to Netlify
-   - Set build command: `bun run build`
-   - Set publish directory: `.next`
+## 风格说明
 
-2. **Environment Variables**
-   ```
-   REPLICATE_API_TOKEN=your_token_here
-   ```
+### 商务风格 (Business)
+- 适合企业高管和商务场合
+- 浅灰色西装外套 + 白色立领衬衫
+- 冷灰色渐变背景，营造现代企业环境
 
-3. **Deploy**
-   - Push to main branch triggers automatic deployment
-   - Your app will be live at `your-site.netlify.app`
+### 经典风格 (Classic)  
+- 适合传统职业和正式场合
+- 深色西装外套 + 纯白衬衫
+- 现代办公室内景背景，柔和模糊处理
 
-### Vercel
+### 职场风格 (Workplace)
+- 适合日常工作和职业环境
+- 炭灰色学院风西装 + 浅蓝色衬衫
+- 现代办公室背景，专业而亲和
 
-1. **Install Vercel CLI**
-   ```bash
-   npm i -g vercel
-   ```
+## 部署
 
-2. **Deploy**
-   ```bash
-   vercel --prod
-   ```
+项目配置了 Vercel 部署，推送到 GitHub 后自动部署。
 
-3. **Set Environment Variables**
-   ```bash
-   vercel env add REPLICATE_API_TOKEN
-   ```
+确保在 Vercel 中配置所有必要的环境变量。
 
-## 🎯 Features in Detail
+## 注意事项
 
-### Demo Mode
-The app includes a demo mode that works without API configuration:
-- Mock background removal with sample processing
-- Simulated AI blending responses
-- Perfect for testing and development
+- 图片大小限制: 2MB
+- 支持格式: JPEG, PNG, WebP
+- 建议上传清晰的人物正面照片以获得最佳效果
+- 需要稳定的网络连接以调用 AI API
 
-### Error Handling
-- Graceful fallbacks for API failures
-- User-friendly error messages
-- Automatic retry mechanisms
+## 许可证
 
-### Performance Optimizations
-- Image compression and optimization
-- Lazy loading for backgrounds
-- Efficient canvas rendering
-
-## 🔧 Development
-
-### Code Quality
-```bash
-# Lint and format code
-bun run lint
-
-# Type checking
-bun run type-check
-```
-
-### Adding New Backgrounds
-1. Add images to `public/backgrounds/`
-2. Update `backgrounds.json` with metadata
-3. Follow naming convention: `scene-name.jpg`
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit changes: `git commit -m 'Add amazing feature'`
-4. Push to branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Replicate** for providing powerful AI models
-- **shadcn/ui** for beautiful UI components
-- **Minecraft** for the inspiration and aesthetic
-- **Next.js** team for the amazing framework
-
-## 📞 Support
-
-- 🐛 **Bug Reports**: [Open an issue](https://github.com/tian-Sun/MinecraftMe-AI-Photo-Blender/issues)
-- 💡 **Feature Requests**: [Discussions](https://github.com/tian-Sun/MinecraftMe-AI-Photo-Blender/discussions)
-- 📧 **Contact**: [Your Email](mailto:your.email@example.com)
-
----
-
-Made with ❤️ and ☕ by [Your Name](https://github.com/tian-Sun)
-
-**⭐ Star this repo if you found it helpful!**
+MIT License

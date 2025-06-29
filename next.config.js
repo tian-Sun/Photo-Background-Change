@@ -7,6 +7,11 @@ const nextConfig = {
       'lh3.googleusercontent.com'
     ],
   },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
+  },
 }
 
 module.exports = nextConfig 
