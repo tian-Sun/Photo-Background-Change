@@ -22,6 +22,7 @@ export default function HeadshotGenerator() {
   const [generationStatus, setGenerationStatus] = useState<'idle' | 'generating' | 'success' | 'error'>('idle');
   const [result, setResult] = useState<GenerationResult | null>(null);
   const [error, setError] = useState('');
+  const [hasUploadedImage, setHasUploadedImage] = useState(false);
   const imageUploadRef = useRef<any>(null);
 
   const handleGenerate = async () => {
@@ -29,7 +30,7 @@ export default function HeadshotGenerator() {
       setError('');
       
       // 检查是否有上传的图片
-      if (!imageUploadRef.current?.hasImage()) {
+      if (!hasUploadedImage || !imageUploadRef.current?.hasImage()) {
         setError('Please upload an image first');
         return;
       }
@@ -83,7 +84,7 @@ export default function HeadshotGenerator() {
     }
   };
 
-  const canGenerate = imageUploadRef.current?.hasImage() && selectedStyle && generationStatus !== 'generating';
+  const canGenerate = hasUploadedImage && selectedStyle && generationStatus !== 'generating';
 
   return (
     <div className="container mx-auto px-4 py-6 max-w-5xl">
@@ -100,6 +101,12 @@ export default function HeadshotGenerator() {
                   maxImages={1}
                   disabled={generationStatus === 'generating'}
                   onError={setError}
+                  onImagesChange={(images) => {
+                    setHasUploadedImage(images && images.length > 0);
+                    if (images && images.length > 0) {
+                      setError(''); // 清除错误信息
+                    }
+                  }}
                 />
               </div>
             </Card>
@@ -132,7 +139,7 @@ export default function HeadshotGenerator() {
             <Button 
               onClick={handleGenerate}
               disabled={!canGenerate}
-              className="w-full h-10 text-base"
+              className={`w-full h-10 text-base ${canGenerate ? 'bg-primary hover:bg-primary/90' : ''}`}
             >
               {generationStatus === 'generating' ? (
                 <>

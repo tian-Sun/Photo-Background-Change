@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useRef, forwardRef, useImperativeHandle } from 'react';
+import React, { useState, useCallback, useRef, forwardRef, useImperativeHandle, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Upload, X, Image as ImageIcon, Loader2 } from 'lucide-react';
@@ -47,6 +47,21 @@ const ImageUpload = forwardRef<{
   const [uploadedImages, setUploadedImages] = useState<UploadedImage[]>([]);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // 当图片列表变化时，通知父组件
+  useEffect(() => {
+    if (onImagesChange) {
+      const validImages = uploadedImages.filter(img => !img.isUploading && !img.error);
+      const imageData = validImages.map(img => ({
+        url: img.url,
+        upload_time: new Date().toISOString(),
+        file_size: img.file.size,
+        file_name: img.file.name,
+        upload_id: img.id
+      }));
+      onImagesChange(imageData);
+    }
+  }, [uploadedImages, onImagesChange]);
 
   useImperativeHandle(ref, () => ({
     getFormattedUploadedImages: () => {
