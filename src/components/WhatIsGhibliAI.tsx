@@ -21,7 +21,7 @@ export default function WhatIs() {
             <Card className="overflow-hidden shadow-lg">
               <CardContent className="p-0">
                 <Image
-                  src="/demo/result2.png"
+                  src="/demo/result2.jpg"
                   alt="Minecraft style characters"
                   width={500}
                   height={400}
