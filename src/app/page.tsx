@@ -16,6 +16,7 @@ import ExamplesGallery from "@/components/ExamplesGallery";
 import BlogPreview from "@/components/BlogPreview";
 import MainContent from "@/components/MainContent";
 import ScrollToHash from "@/components/ScrollToHash";
+import HeadshotGenerator from "@/components/ai-generator/HeadshotGenerator";
 
 interface Background {
   id: string;
@@ -28,8 +29,10 @@ export default function Home() {
     <main>
       <ScrollToHash />
       <div className="bg-gradient-to-br from-purple-50 to-purple-100">
-        <MainContent />
-        <HeroSection />
+       
+        {/* <MainContent /> */}
+         <HeroSection />
+         <HeadshotGenerator />
         <ExamplesGallery />
         <WhatIs />
         <KeyFeatures />
