@@ -43,4 +43,6 @@ export const SITE_CONFIG = {
   name: 'MinecraftStyle.online',
   description: 'Transform your photos into Minecraft-style pixel art with AI',
   url: process.env.NEXTAUTH_URL || 'http://localhost:3000',
-}; 
+};
+
+ 
