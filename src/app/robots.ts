@@ -1,14 +1,25 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://minecraftstyle.online'
+  const baseUrl = 'https://aiheadshotgen.com'
   
   return {
     rules: {
       userAgent: '*',
-      allow: '/',
+      allow: [
+        '/',
+        '/blog',
+        '/blog/*',
+        '/blog/who-should-use-ai-headshot-generator',
+        '/blog/how-to-create-professional-ai-headshot-in-three-minutes',
+        '/blog/ai-headshot-generator-vs-traditional-studio',
+        '/privacy',
+        '/terms',
+      ],
       disallow: [
-        '/api/auth/',  // 禁止爬取认证相关API
+        '/api/',
+        '/api/auth/',
+        '/login',
       ],
     },
     sitemap: `${baseUrl}/sitemap.xml`,

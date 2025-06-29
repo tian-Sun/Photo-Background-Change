@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 
   return {
-    title: `${post.title} - MinecraftStyle.online Blog`,
+    title: `${post.title} - AIHeadshotGen.com Blog`,
     description: post.description,
     openGraph: {
       title: post.title,

@@ -19,11 +19,11 @@ export default function Footer() {
                 height={32}
                 className="rounded-md"
               />
-              <span className="text-xl font-bold">MinecraftStyle.online</span>
+              <span className="text-xl font-bold">AIHeadshotGen.com</span>
             </div>
             <div className="space-y-2 text-muted-foreground max-w-md">
-                <p>The ultimate Minecraft style generator and AI photo converter for creating stunning pixel art from your photos.</p>
-                <p>Transform any image into authentic Minecraft style art with our advanced pixel art generator—completely free and instant!</p>
+                <p>Try our AI headshot generator and transform any selfie into three studio-quality headshots in minutes. No photographer needed, fully private, perfect for LinkedIn and résumés.</p>
+                <p></p>
             </div>
           </div>
 
@@ -89,12 +89,10 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <div>
-            <p>
-              Disclaimer: This is an independent, fan-made project powered by AI and is not affiliated with, endorsed by, or connected to Mojang, Microsoft, or the official Minecraft brand in any way.
-            </p>
+           
           </div>
           <div className="flex items-center gap-4">
-            <span>© 2025 • MinecraftStyle.online All rights reserved.</span>
+            <span>© 2025 • AIHeadshotGen.com All rights reserved.</span>
           </div>
         </div>
       </div>

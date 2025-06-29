@@ -14,7 +14,7 @@ export default function PricingPlansWithPayment() {
             Choose Your Plan
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Get started with our AI photo blending service. Choose the plan that best fits your needs.
+            Get started with our AI headshot generations service. Choose the plan that best fits your needs.
           </p>
         </div>
 
