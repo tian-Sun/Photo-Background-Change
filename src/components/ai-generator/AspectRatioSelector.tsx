@@ -28,10 +28,10 @@ export default function AspectRatioSelector({ selectedRatio, onRatioChange }: As
             variant="outline"
             size="sm"
             onClick={() => onRatioChange(ratio.value)}
-            className={`${
+            className={`transition-all duration-200 ${
               isSelected 
-                ? 'bg-primary text-primary-foreground' 
-                : 'bg-background'
+                ? 'bg-primary text-primary-foreground border-primary' 
+                : 'bg-background hover:bg-muted'
             }`}
           >
             {ratio.label}

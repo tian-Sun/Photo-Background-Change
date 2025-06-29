@@ -22,6 +22,7 @@ interface UploadedImage {
   uploadProgress?: number;
   error?: string;
   preview: string;
+  base64?: string;
 }
 
 interface ImageUploadProps {
@@ -34,10 +35,12 @@ interface ImageUploadProps {
 const ImageUpload = forwardRef<{
   getFormattedUploadedImages: () => string | null;
   getUploadedImagesData: () => UploadedImageData[];
+  getBase64Image: () => string | null;
+  hasImage: () => boolean;
   clearImages: () => void;
 }, ImageUploadProps>(function ImageUpload({ 
   onImagesChange, 
-  maxImages = 2, 
+  maxImages = 1, 
   disabled = false,
   onError
 }: ImageUploadProps, ref) {
@@ -56,6 +59,11 @@ const ImageUpload = forwardRef<{
     getUploadedImagesData: () => uploadedImages
       .filter(img => img.data && !img.isUploading && !img.error)
       .map(img => img.data!),
+    getBase64Image: () => {
+      const firstImage = uploadedImages.find(img => img.base64 && !img.isUploading && !img.error);
+      return firstImage?.base64 || null;
+    },
+    hasImage: () => uploadedImages.length > 0 && uploadedImages.some(img => !img.isUploading && !img.error),
     clearImages: () => {
       uploadedImages.forEach(img => {
         if (img.url.startsWith('blob:')) {
@@ -65,6 +73,16 @@ const ImageUpload = forwardRef<{
       setUploadedImages([]);
     }
   }));
+
+  // 将文件转换为base64
+  const fileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = error => reject(error);
+    });
+  };
 
   // 格式化上传图片数据
   const formatUploadedImagesForDatabase = (images: UploadedImageData[]): string | null => {
@@ -84,7 +102,7 @@ const ImageUpload = forwardRef<{
     return JSON.stringify(imagesObject);
   };
 
-  const handleImageUpload = useCallback((files: FileList | null) => {
+  const handleImageUpload = useCallback(async (files: FileList | null) => {
     if (!files) return;
     
     const newFiles = Array.from(files);
@@ -95,23 +113,34 @@ const ImageUpload = forwardRef<{
 
     const validFiles = newFiles.filter(file => {
       if (!file.type.startsWith('image/')) {
-        onError?.('只能上传图片文件');
+        onError?.('Please upload image files only');
         return false;
       }
-      if (file.size > 5 * 1024 * 1024) {
+      if (file.size > 2 * 1024 * 1024) { // 2MB限制
         onError?.('Image size cannot exceed 2MB');
         return false;
       }
       return true;
     });
 
-    const newImages = validFiles.map(file => ({
-      id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
-      url: URL.createObjectURL(file),
-      file: file,
-      preview: URL.createObjectURL(file)
-    }));
+    // 处理每个文件，转换为base64
+    const processFiles = validFiles.map(async (file) => {
+      try {
+        const base64 = await fileToBase64(file);
+        return {
+          id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
+          url: URL.createObjectURL(file),
+          file: file,
+          preview: URL.createObjectURL(file),
+          base64: base64
+        };
+      } catch (error) {
+        onError?.('Image processing failed');
+        return null;
+      }
+    });
 
+    const newImages = (await Promise.all(processFiles)).filter(Boolean) as UploadedImage[];
     setUploadedImages(prev => [...prev, ...newImages]);
   }, [maxImages, uploadedImages.length, onError]);
 
@@ -156,6 +185,16 @@ const ImageUpload = forwardRef<{
         onDragLeave={handleDragLeave}
         onClick={handleClick}
       >
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          multiple={maxImages > 1}
+          className="hidden"
+          onChange={(e) => handleImageUpload(e.target.files)}
+          disabled={disabled}
+        />
+        
         {uploadedImages.length === 0 ? (
           <div className="py-8">
             <Upload className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
@@ -163,11 +202,11 @@ const ImageUpload = forwardRef<{
               Drag and drop images here, or click to upload
             </p>
             <p className="text-xs text-muted-foreground">
-              Supported formats: JPG, PNG, WebP 
+              Supported formats: JPG, PNG, WebP (Max 2MB)
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 gap-4 py-4">
+          <div className="grid grid-cols-1 gap-4 py-4">
             {uploadedImages.map((image, index) => (
               <div key={index} className="relative aspect-square">
                 <img
@@ -178,18 +217,18 @@ const ImageUpload = forwardRef<{
                 {!disabled && (
                   <button
                     className="absolute top-1 right-1 p-1 rounded-full bg-black/50 text-white hover:bg-black/70"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    removeImage(image.id);
-                  }}
-                >
-                    ×
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      removeImage(image.id);
+                    }}
+                  >
+                    <X className="w-4 h-4" />
                   </button>
                 )}
               </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
