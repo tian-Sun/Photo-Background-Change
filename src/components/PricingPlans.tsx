@@ -14,8 +14,8 @@ const plans = [
     features: [
       'One free trial per account per day',
       'Basic style options',
-      'Access to free Minecraft style image generator',
-      '@black-forest-labs/flux-kontext-pro integration',
+      'Access to free AI headshot generator',
+      'Flux Kontext Pro integration',
       'Standard resolution',
     ],
     buttonText: 'Try Free',
@@ -90,16 +90,16 @@ export default function PricingPlans() {
     <section id="pricing" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Minecraft Style Generator Pricing - Free AI Photo Converter</h2>
+          <h2 className="text-4xl font-bold mb-4">AI Headshot Generator Pricing - Free AI Headshot Generator</h2>
           <p className="text-lg text-muted-foreground">
-            Start creating pixel art with our free Minecraft style generator and AI photo converter.
+            Start creating headshots with our free AI headshot generator.
           </p>
         </div>
 
         <div className="flex justify-center">
           <Card className="relative overflow-hidden shadow-card hover:shadow-lg transition-shadow duration-300 max-w-sm w-full">
             <CardHeader className="text-center p-6">
-              <h3 className="text-xl font-semibold mb-2">Free Pixel Art Generator - {freePlan.name}</h3>
+              <h3 className="text-xl font-semibold mb-2">Free AI Headshot Generator - {freePlan.name}</h3>
               <div className="mb-4">
                 <span className="text-4xl font-bold">{freePlan.price}</span>
                 {freePlan.price !== 'Free' && (

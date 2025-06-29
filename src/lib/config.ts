@@ -10,8 +10,8 @@ export const PLANS: Record<string, PaymentPlan> = {
     features: [
       'One free trial per account per day',
       'Basic style options',
-      'Access to free Minecraft style image generator',
-      '@black-forest-labs/flux-kontext-pro integration',
+      'Access to free AI headshot generator',
+      'Flux Kontext Pro integration',
       'Standard resolution'
     ]
   },
@@ -24,10 +24,10 @@ export const PLANS: Record<string, PaymentPlan> = {
     popular: true,
     features: [
       '100 AI photo generations',
-      'Advanced background removal',
+      'Advanced style options',
       'High quality output',
       'Priority email support',
-      'Access to all backgrounds'
+      'Access to all styles'
     ]
   }
 };
@@ -40,7 +40,7 @@ export const DODOPAYMENT_CONFIG = {
 };
 
 export const SITE_CONFIG = {
-  name: 'MinecraftStyle.online',
-  description: 'Transform your photos into Minecraft-style pixel art with AI',
+  name: 'AIHeadshotGen.com',
+  description: 'Transform your photos into professional headshots with AI',
   url: process.env.NEXTAUTH_URL || 'http://localhost:3000',
 }; 

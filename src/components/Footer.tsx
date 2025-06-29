@@ -14,7 +14,7 @@ export default function Footer() {
             <div className="flex items-center space-x-2 mb-4">
               <Image
                 src="/logo.png"
-                alt="Minecraft Style Generator"
+                alt="AI Headshot Generator"
                 width={32}
                 height={32}
                 className="rounded-md"

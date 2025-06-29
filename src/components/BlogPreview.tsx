@@ -17,7 +17,7 @@ export default async function BlogPreview() {
             Latest Blog Posts
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover tips, tutorials, and insights about creating stunning Minecraft style art with our AI-powered tools
+            Discover tips, tutorials, and insights about creating professional headshots with our AI-powered generator.
           </p>
         </div>
 

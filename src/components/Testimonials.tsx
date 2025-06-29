@@ -35,9 +35,9 @@ export default function Testimonials() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-6">User Reviews</Badge>
-          <h2 className="text-4xl font-bold mb-4">What Our Users Say About Their AI Headshots</h2>
+          <h2 className="text-4xl font-bold mb-4">What Our Users Say About Our AI Headshot Generator</h2>
           <p className="text-lg text-muted-foreground">
-            Real feedback from professionals who transformed their selfies into studio-quality headshots.
+            Real feedback from professionals who transformed their selfies into studio-quality headshots with our AI photo generator.
           </p>
         </div>
 

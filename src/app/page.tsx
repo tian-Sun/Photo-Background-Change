@@ -17,6 +17,7 @@ import BlogPreview from "@/components/BlogPreview";
 import MainContent from "@/components/MainContent";
 import ScrollToHash from "@/components/ScrollToHash";
 import HeadshotGenerator from "@/components/ai-generator/HeadshotGenerator";
+import { Main } from "next/document";
 
 interface Background {
   id: string;
@@ -29,19 +30,21 @@ export default function Home() {
     <main>
       <ScrollToHash />
       <div className="bg-gradient-to-br from-purple-50 to-purple-100">
-        <MainContent />
-        <HeadshotGenerator />
-        <HeroSection />
+       
+        {/* <MainContent /> */}
+         <HeroSection />
+         <HeadshotGenerator />
+         <MainContent/>
         <ExamplesGallery />
         <WhatIs />
         <KeyFeatures />
         <PerformanceMetrics />
-        <Suspense fallback={<div className="bg-white py-16 text-center">加载定价计划...</div>}>
+        <Suspense fallback={<div className="bg-white py-16 text-center">loading ...</div>}>
           <PricingPlansWithPayment />
         </Suspense>
         <Testimonials />
         <FAQ />
-        <Suspense fallback={<div className="bg-white py-16 text-center">加载博客文章...</div>}>
+        <Suspense fallback={<div className="bg-white py-16 text-center">loading blog articles...</div>}>
           <BlogPreview />
         </Suspense>
         <Footer />
