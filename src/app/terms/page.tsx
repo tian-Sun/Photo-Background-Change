@@ -132,16 +132,8 @@ export default function TermsPage() {
               For questions about these Terms of Service, contact us at:
             </p>
             <div className="bg-gray-50 p-4 rounded-lg mb-6">
-              <p><strong>Email:</strong> legal@aiheadshotgen.com</p>
-              <p><strong>Website:</strong> https://aiheadshotgen.com</p>
-              <p><strong>Response Time:</strong> Within 48 hours</p>
+              <p><strong>Email:</strong> wendy.1031ht@gmail.com</p>
             </div>
-
-            <h2 className="text-2xl font-semibold text-[#22223b] mb-4">13. Governing Law</h2>
-            <p className="mb-6">
-              These terms are governed by the laws of [YOUR JURISDICTION], 
-              and any disputes will be resolved in the courts of [YOUR JURISDICTION].
-            </p>
 
             <div className="border-t pt-6 mt-8">
               <p className="text-sm text-gray-500">
