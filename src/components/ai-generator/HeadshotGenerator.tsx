@@ -4,7 +4,10 @@ import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
-import { Download } from 'lucide-react';
+import { Download, Upload } from 'lucide-react';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import ImageUpload from './ImageUpload';
 import StyleSelector from './StyleSelector';
 import AspectRatioSelector from './AspectRatioSelector';
@@ -25,10 +28,18 @@ export default function HeadshotGenerator() {
   const [error, setError] = useState('');
   const [hasUploadedImage, setHasUploadedImage] = useState(false);
   const imageUploadRef = useRef<any>(null);
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
   const handleGenerate = async () => {
     try {
       setError('');
+      
+      // 检查用户登录态
+      if (!session) {
+        setError('Please sign in first to generate images');
+        return;
+      }
       
       // 检查是否有上传的图片
       if (!hasUploadedImage || !imageUploadRef.current?.hasImage()) {
@@ -85,7 +96,7 @@ export default function HeadshotGenerator() {
     }
   };
 
-  const canGenerate = hasUploadedImage && selectedStyle && generationStatus !== 'generating';
+  const canGenerate = session && hasUploadedImage && selectedStyle && generationStatus !== 'generating';
 
   return (
     <div className="container mx-auto px-4 py-6 max-w-5xl">
@@ -97,18 +108,39 @@ export default function HeadshotGenerator() {
             <Card className="p-3 border-2 border-dashed">
               <div className="space-y-2">
                 <Label className="text-base font-semibold">Upload Image</Label>
-                <ImageUpload
-                  ref={imageUploadRef}
-                  maxImages={1}
-                  disabled={generationStatus === 'generating'}
-                  onError={setError}
-                  onImagesChange={(images) => {
-                    setHasUploadedImage(images && images.length > 0);
-                    if (images && images.length > 0) {
-                      setError(''); // 清除错误信息
-                    }
-                  }}
-                />
+                {status === 'loading' ? (
+                  <div className="border-2 border-dashed rounded-lg p-8 text-center border-muted-foreground/20">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-muted-foreground mx-auto mb-4"></div>
+                    <p className="text-sm text-muted-foreground">
+                      Checking login status...
+                    </p>
+                  </div>
+                ) : !session ? (
+                  <div className="border-2 border-dashed rounded-lg p-8 text-center border-muted-foreground/20 bg-muted/10">
+                    <Upload className="w-12 h-12 mx-auto mb-4 text-muted-foreground opacity-50" />
+                    <p className="text-sm text-muted-foreground mb-2">
+                      Please sign in to upload images
+                    </p>
+                    <Link href="/login">
+                      <Button variant="outline" size="sm" className="mt-2">
+                        Sign In Now
+                      </Button>
+                    </Link>
+                  </div>
+                ) : (
+                  <ImageUpload
+                    ref={imageUploadRef}
+                    maxImages={1}
+                    disabled={generationStatus === 'generating'}
+                    onError={setError}
+                    onImagesChange={(images) => {                      
+                      setHasUploadedImage(images && images.length > 0);
+                      if (images && images.length > 0) {
+                        setError(''); // 清除错误信息
+                      }
+                    }}
+                  />
+                )}
               </div>
             </Card>
 
@@ -156,6 +188,15 @@ export default function HeadshotGenerator() {
             {error && (
               <div className="p-3 bg-destructive/10 border border-destructive/20 rounded-lg">
                 <p className="text-sm text-destructive">{error}</p>
+                {error.includes('sign in') && !session && (
+                  <div className="mt-2">
+                    <Link href="/login">
+                      <Button variant="outline" size="sm" className="text-xs">
+                        Sign In Now
+                      </Button>
+                    </Link>
+                  </div>
+                )}
               </div>
             )}
           </div>
