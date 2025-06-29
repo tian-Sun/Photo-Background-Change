@@ -21,13 +21,8 @@ export default function WhatIs() {
             <Card className="overflow-hidden shadow-lg">
               <CardContent className="p-0">
                 <Image
-<<<<<<< HEAD
                   src="/demo/result2.jpg"
-                  alt="Minecraft style characters"
-=======
-                  src="/demo/result2.png"
                   alt="AI generated professional headshot"
->>>>>>> peng
                   width={500}
                   height={400}
                   className="w-full h-auto"
