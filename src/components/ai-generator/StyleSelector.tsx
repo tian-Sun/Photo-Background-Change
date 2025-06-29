@@ -20,7 +20,7 @@ const styles = [
   },
   {
     id: 'workplace',
-    name: 'Workplace',
+    name: 'Academic',
     image: '/demo/result2.png',
   }
 ];
