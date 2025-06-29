@@ -31,7 +31,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "AIGeneratorExample.tsx-1"  ],
   "exclude": [
     "node_modules"
   ]

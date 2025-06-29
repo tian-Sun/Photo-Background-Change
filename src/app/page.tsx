@@ -29,10 +29,16 @@ export default function Home() {
     <main>
       <ScrollToHash />
       <div className="bg-gradient-to-br from-purple-50 to-purple-100">
+<<<<<<< HEAD
        
         {/* <MainContent /> */}
          <HeroSection />
          <HeadshotGenerator />
+=======
+        <MainContent />
+        <HeadshotGenerator />
+        <HeroSection />
+>>>>>>> peng
         <ExamplesGallery />
         <WhatIs />
         <KeyFeatures />

@@ -16,26 +16,26 @@ const stagewiseConfig = {
 };
 
 export const metadata: Metadata = {
-  title: "Minecraft Style Photo Generator - MinecraftStyle.online",
-  description: "Free AI Image Converter - Transform human photos into Minecraft Style pixel art with custom backgrounds. 2M+ images created, instant results, completely free!",
-  keywords: "minecraft photo generator, ai pixel art creator, minecraft style converter, minecraft avatar generator",
+  title: "AI Headshot Generator - Create Professional Headshots in Seconds",
+  description: "Upload your selfie photo, choose your style, and generate a professional headshot in seconds. Perfect for LinkedIn, Resume, and Social Media Profiles.",
+  keywords: "ai headshot generator, professional headshot generator, ai headshot, headshot generator, ai headshots, headshot generator online, ai headshot generator online, ai headshot generator free, ai headshot generator free online, ai headshot generator free online",
   icons: {
     icon: "/favicon.ico",
   },
   alternates: {
-    canonical: "https://www.minecraftstyle.online",
+    canonical: "https://aiheadshotgen.com/",
   },
   openGraph: {
-    title: "Minecraft Style Photo Generator - MinecraftStyle.online",
-    description: "Free AI Image Converter - Transform human photos into Minecraft Style pixel art with custom backgrounds. 2M+ images created, instant results, completely free!",
-    url: "https://minecraftstyle.online",
-    siteName: "MinecraftStyle.online",
+    title: "AI Headshot Generator - Create Professional Headshots in Seconds",
+    description: "Upload your selfie photo, choose your style, and generate a professional headshot in seconds. Perfect for LinkedIn, Resume, and Social Media Profiles.",
+    url: "https://aiheadshotgen.com/",
+    siteName: "AI Headshot Generator",
     images: [
       {
-        url: "https://minecraftstyle.online/og-image.png",
+        url: "https://aiheadshotgen.com/og-image.png",
         width: 1024,
         height: 1024,
-        alt: "Minecraft Style Photo Generator",
+        alt: "AI Headshot Generator",
       },
     ],
     type: "website",
@@ -52,14 +52,7 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@wendy_Tianf",
-    title: "Minecraft Style Photo Generator - MinecraftStyle.online",
-    description: "Free AI Image Converter - Transform human photos into Minecraft Style pixel art with custom backgrounds. 2M+ images created, instant results, completely free!",
-    images: ["https://minecraftstyle.online/og-image.png"],
-  },
+  }
 };
 
 export default function RootLayout({

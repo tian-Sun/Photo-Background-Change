@@ -4,11 +4,11 @@ import Footer from '@/components/Footer';
 import { getBlogPosts } from '@/lib/blog';
 
 export const metadata: Metadata = {
-  title: 'Blog - MinecraftStyle.online',
-  description: 'Discover tips, tutorials, and insights about creating Minecraft style art with AI',
+  title: 'Blog - AI Headshot Generator',
+  description: 'Discover tips, tutorials, and insights about creating AI headshot with AI',
   openGraph: {
-    title: 'Blog - MinecraftStyle.online',
-    description: 'Discover tips, tutorials, and insights about creating Minecraft style art with AI',
+    title: 'Blog - AI Headshot Generator',
+    description: 'Discover tips, tutorials, and insights about creating AI headshot with AI',
     type: 'website',
   },
 };
@@ -22,10 +22,10 @@ export default async function BlogPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-[#22223b] mb-4">
-            Minecraft Style Blog
+            AI Headshot Generator Blog
           </h1>
           <p className="text-lg text-[#a259ff] max-w-2xl mx-auto">
-            Discover tips, tutorials, and insights about creating stunning Minecraft style art with our AI-powered tools
+            Discover tips, tutorials, and insights about creating stunning AI headshot with our AI-powered tools
           </p>
         </div>
 

@@ -4,10 +4,13 @@ import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
+<<<<<<< HEAD
 import { Download, Upload } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+=======
+>>>>>>> peng
 import ImageUpload from './ImageUpload';
 import StyleSelector from './StyleSelector';
 import AspectRatioSelector from './AspectRatioSelector';
@@ -21,6 +24,7 @@ interface GenerationResult {
 }
 
 export default function HeadshotGenerator() {
+<<<<<<< HEAD
   const [selectedStyle, setSelectedStyle] = useState('business');
   const [selectedRatio, setSelectedRatio] = useState('auto');
   const [generationStatus, setGenerationStatus] = useState<'idle' | 'generating' | 'success' | 'error'>('idle');
@@ -30,10 +34,19 @@ export default function HeadshotGenerator() {
   const imageUploadRef = useRef<any>(null);
   const { data: session, status } = useSession();
   const router = useRouter();
+=======
+  const [selectedStyle, setSelectedStyle] = useState('professional');
+  const [selectedRatio, setSelectedRatio] = useState('1:1');
+  const [generationStatus, setGenerationStatus] = useState<'idle' | 'generating' | 'success' | 'error'>('idle');
+  const [result, setResult] = useState<GenerationResult | null>(null);
+  const [error, setError] = useState('');
+  const imageUploadRef = useRef<any>(null);
+>>>>>>> peng
 
   const handleGenerate = async () => {
     try {
       setError('');
+<<<<<<< HEAD
       
       // 检查用户登录态
       if (!session) {
@@ -91,13 +104,32 @@ export default function HeadshotGenerator() {
 
     } catch (err) {
       console.error('Generation error:', err);
+=======
+      setGenerationStatus('generating');
+      
+      // TODO: Implement actual generation logic
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      setResult({
+        id: '1',
+        url: '/demo/result.png',
+        style: selectedStyle,
+        ratio: selectedRatio,
+        createdAt: new Date()
+      });
+      setGenerationStatus('success');
+    } catch (err) {
+>>>>>>> peng
       setError(err instanceof Error ? err.message : 'Generation failed, please try again');
       setGenerationStatus('error');
     }
   };
 
+<<<<<<< HEAD
   const canGenerate = session && hasUploadedImage && selectedStyle && generationStatus !== 'generating';
 
+=======
+>>>>>>> peng
   return (
     <div className="container mx-auto px-4 py-6 max-w-5xl">
       <Card className="p-4">
@@ -108,6 +140,7 @@ export default function HeadshotGenerator() {
             <Card className="p-3 border-2 border-dashed">
               <div className="space-y-2">
                 <Label className="text-base font-semibold">Upload Image</Label>
+<<<<<<< HEAD
                 {status === 'loading' ? (
                   <div className="border-2 border-dashed rounded-lg p-8 text-center border-muted-foreground/20">
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-muted-foreground mx-auto mb-4"></div>
@@ -141,6 +174,14 @@ export default function HeadshotGenerator() {
                     }}
                   />
                 )}
+=======
+                <ImageUpload
+                  ref={imageUploadRef}
+                  maxImages={1}
+                  disabled={generationStatus === 'generating'}
+                  onError={setError}
+                />
+>>>>>>> peng
               </div>
             </Card>
 
@@ -171,6 +212,7 @@ export default function HeadshotGenerator() {
             {/* 生成按钮 */}
             <Button 
               onClick={handleGenerate}
+<<<<<<< HEAD
               disabled={!canGenerate}
               className={`w-full h-10 text-base ${canGenerate ? 'bg-primary hover:bg-primary/90' : ''}`}
             >
@@ -182,10 +224,17 @@ export default function HeadshotGenerator() {
               ) : (
                 'Generate'
               )}
+=======
+              disabled={generationStatus === 'generating'}
+              className="w-full h-10 text-base"
+            >
+              {generationStatus === 'generating' ? 'Generating...' : 'Generate'}
+>>>>>>> peng
             </Button>
 
             {/* 错误信息 */}
             {error && (
+<<<<<<< HEAD
               <div className="p-3 bg-destructive/10 border border-destructive/20 rounded-lg">
                 <p className="text-sm text-destructive">{error}</p>
                 {error.includes('sign in') && !session && (
@@ -197,12 +246,17 @@ export default function HeadshotGenerator() {
                     </Link>
                   </div>
                 )}
+=======
+              <div className="p-2 bg-destructive/10 border border-destructive/20 rounded-lg">
+                <p className="text-sm text-destructive">{error}</p>
+>>>>>>> peng
               </div>
             )}
           </div>
 
           {/* 右侧预览面板 */}
           <Card className="flex items-center justify-center bg-muted/10 border-2 border-dashed">
+<<<<<<< HEAD
             <div className="w-full h-full flex items-center justify-center p-4">
               {generationStatus === 'generating' ? (
                 <div className="text-center space-y-4">
@@ -241,6 +295,22 @@ export default function HeadshotGenerator() {
                   <p className="text-lg font-medium text-muted-foreground">Result Preview</p>
                   <p className="text-sm text-muted-foreground">Generated image will be displayed here</p>
                 </div>
+=======
+            <div className="w-full h-full flex items-center justify-center p-3">
+              {generationStatus === 'generating' ? (
+                <div className="text-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-3"></div>
+                  <p className="text-muted-foreground">Generating...</p>
+                </div>
+              ) : result ? (
+                <img
+                  src={result.url}
+                  alt="Generated image"
+                  className="max-w-full max-h-full object-contain"
+                />
+              ) : (
+                <p className="text-muted-foreground">Result Preview</p>
+>>>>>>> peng
               )}
             </div>
           </Card>

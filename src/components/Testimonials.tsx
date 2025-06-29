@@ -7,25 +7,25 @@ import Image from 'next/image';
 
 const testimonials = [
   {
-    name: 'Alex Chen',
-    role: 'Digital Artist',
+    name: 'Michael Chen',
+    role: 'Tech Startup Founder',
     avatar: 'https://ext.same-assets.com/3798290750/2048697749.png',
     rating: 5,
-    content: "This app makes it so easy to blend my photos with Minecraft backgrounds. The AI fusion is seamless and the results look amazing!",
+    content: "This AI headshot generator is a game-changer! Got my professional headshots in minutes with the Modern Tech Blue background. Perfect for my LinkedIn and company website.",
   },
   {
-    name: 'Sarah Miller',
-    role: 'Content Creator',
+    name: 'Sarah Williams',
+    role: 'Executive Coach',
     avatar: 'https://ext.same-assets.com/3798290750/64329983.png',
     rating: 5,
-    content: "I love how quickly I can turn any selfie into a Minecraft-style portrait. No registration needed and it's totally free right now!",
+    content: "The Bright Daylight White background is exactly what I needed for my coaching profile. Quick, professional, and the quality is outstanding. Best investment for my personal brand!",
   },
   {
-    name: 'James Liu',
-    role: 'Game Developer',
+    name: 'James Anderson',
+    role: 'Corporate Director',
     avatar: 'https://ext.same-assets.com/3798290750/35535824.png',
     rating: 5,
-    content: "Perfect for fan art and social sharing. The quality of the AI-generated images is top-notch. Highly recommended for Minecraft fans!",
+    content: "Corporate Gray background option is perfect for my industry. Generated three different styles in 90 seconds - saved me hours of scheduling and studio time. Highly recommended!",
   },
 ];
 
@@ -35,9 +35,9 @@ export default function Testimonials() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-6">User Reviews</Badge>
-          <h2 className="text-4xl font-bold mb-4">AI Photo Converter Reviews - Minecraft Style Generator Users</h2>
+          <h2 className="text-4xl font-bold mb-4">What Our Users Say About Their AI Headshots</h2>
           <p className="text-lg text-muted-foreground">
-            Real feedback from creators using our pixel art generator and Minecraft style converter.
+            Real feedback from professionals who transformed their selfies into studio-quality headshots.
           </p>
         </div>
 

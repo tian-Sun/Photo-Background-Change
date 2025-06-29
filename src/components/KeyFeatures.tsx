@@ -2,44 +2,44 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import {
-  Monitor,
-  MessageSquare,
-  Palette,
+  Clock,
+  DollarSign,
   Image as ImageIcon,
-  BarChart3,
-  Shield
+  Shield,
+  Sparkles,
+  Lock
 } from 'lucide-react';
 
 const features = [
   {
-    icon: Monitor,
-    title: 'Advanced AI Photo Converter',
-    description: 'Transform photos into authentic Minecraft style art using our cutting-edge AI photo converter technology.',
+    icon: Clock,
+    title: 'Save Precious Time',
+    description: 'Traditional photoshoots take days to schedule and complete. Our AI headshot generator delivers professional results in just minutes.',
   },
   {
-    icon: ImageIcon,
-    title: 'High-Quality Pixel Art Output',
-    description: 'Our pixel art generator creates crisp, high-resolution Minecraft style images perfect for sharing and printing.',
+    icon: DollarSign,
+    title: 'Budget-Friendly Solution',
+    description: 'Skip the hundreds spent on professional photographers. Get studio-quality headshots for less than the cost of lunch.',
   },
   {
-    icon: Palette,
-    title: 'Custom Minecraft Style Backgrounds',
-    description: 'Upload any background for personalized Minecraft style generator results that match your creative vision.',
+    icon: Sparkles,
+    title: 'Natural, Lifelike Quality',
+    description: 'Unlike other AI tools that over-smooth faces, our technology preserves natural textures and lifelike skin tones to maintain authenticity.',
   },
   {
-    icon: BarChart3,
-    title: 'Multiple Pixel Art Styles',
-    description: 'Choose from various Minecraft-inspired pixel art styles with our versatile AI photo converter.',
-  },
-  {
-    icon: MessageSquare,
-    title: 'Instant Minecraft Style Results',
-    description: 'Our fast Minecraft style generator delivers lightning-quick pixel art transformations in seconds.',
+    icon: Lock,
+    title: 'End-to-End Privacy',
+    description: 'Your uploads are protected with end-to-end encryption. Photos are automatically deleted after 24 hours unless cloud storage is selected.',
   },
   {
     icon: Shield,
-    title: 'Free Pixel Art Generator',
-    description: 'Enjoy unlimited access to our AI photo converter—completely free, no registration required!',
+    title: 'Data Protection',
+    description: 'We never train future AI models on your photos without explicit permission, ensuring your likeness remains yours alone.',
+  },
+  {
+    icon: DollarSign,
+    title: 'Transparent Pricing',
+    description: 'One flat credit unlocks all styles at full resolution—no watermarks, no hidden tiers, just straightforward pricing.',
   },
 ];
 
@@ -48,9 +48,9 @@ export default function KeyFeatures() {
     <section id="feature" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Minecraft Style Generator Features</h2>
+          <h2 className="text-4xl font-bold mb-4">Professional Headshots Made Simple</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Experience the power of our AI photo converter and pixel art generator. Create stunning Minecraft style art with advanced features designed for creators, gamers, and digital artists.
+            Experience the future of professional headshots with our AI-powered solution. We've solved the biggest pain points of traditional photography while ensuring privacy and affordability.
           </p>
         </div>
 

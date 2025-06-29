@@ -4,19 +4,19 @@ import { Badge } from '@/components/ui/badge';
 
 const metrics = [
   {
-    title: 'Pixel Art Generated',
-    value: '2M+',
-    subtitle: 'Minecraft Style Images Created',
+    title: 'Headshots Generated',
+    value: '1k+',
+    subtitle: 'Headshots Created',
   },
   {
-    title: 'AI Conversions',
-    value: '50K+',
-    subtitle: 'Daily Photo Transformations',
+    title: 'Support Ratio',
+    value: '6',
+    subtitle: 'Support Ratio',
   },
   {
-    title: 'Art Styles',
-    value: '25+',
-    subtitle: 'Pixel Art Generator Options',
+    title: 'Background Styles',
+    value: '3',
+    subtitle: 'Background Styles Options',
   },
 ];
 
@@ -26,9 +26,9 @@ export default function PerformanceMetrics() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-6">Performance Stats</Badge>
-          <h2 className="text-4xl font-bold mb-4">Minecraft Style Generator & AI Photo Converter Stats</h2>
+          <h2 className="text-4xl font-bold mb-4">AI Headshot Generator Stats</h2>
           <p className="text-lg text-muted-foreground">
-            Leading the way in AI-powered pixel art generation and Minecraft style transformations.
+            Leading the way in AI-powered professional headshot generation.
           </p>
         </div>
 

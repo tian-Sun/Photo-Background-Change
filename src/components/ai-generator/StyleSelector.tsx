@@ -9,6 +9,7 @@ interface StyleSelectorProps {
 
 const styles = [
   {
+<<<<<<< HEAD
     id: 'business',
     name: 'Business',
     image: '/demo/person.png',
@@ -21,6 +22,20 @@ const styles = [
   {
     id: 'workplace',
     name: 'Workplace',
+=======
+    id: 'professional',
+    name: '专业风格',
+    image: '/demo/person.png',
+  },
+  {
+    id: 'casual',
+    name: '休闲风格',
+    image: '/demo/result.png',
+  },
+  {
+    id: 'artistic',
+    name: '艺术风格',
+>>>>>>> peng
     image: '/demo/result2.png',
   }
 ];

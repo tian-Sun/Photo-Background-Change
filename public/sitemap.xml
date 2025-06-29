@@ -4,51 +4,57 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Homepage - Main Minecraft Style Generator -->
+  <!-- Homepage -->
   <url>
-    <loc>https://minecraftstyle.online/</loc>
-    <lastmod>2024-01-20</lastmod>
+    <loc>https://aiheadshotgen.com</loc>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Login Page -->
+  <!-- Blog Main Page -->
   <url>
-    <loc>https://minecraftstyle.online/login</loc>
-    <lastmod>2024-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://aiheadshotgen.com/blog</loc>
+    <lastmod>2025-06-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
 
-  <!-- Future pages can be added here -->
-  <!-- Example:
+  <!-- Blog Articles -->
   <url>
-    <loc>https://minecraftstyle.online/about</loc>
-    <lastmod>2024-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://minecraftstyle.online/gallery</loc>
-    <lastmod>2024-01-20</lastmod>
+    <loc>https://aiheadshotgen.com/blog/who-should-use-ai-headshot-generator</loc>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <url>
-    <loc>https://minecraftstyle.online/privacy</loc>
-    <lastmod>2024-01-20</lastmod>
+    <loc>https://aiheadshotgen.com/blog/how-to-create-professional-ai-headshot-in-three-minutes</loc>
+    <lastmod>2025-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aiheadshotgen.com/blog/ai-headshot-generator-vs-traditional-studio</loc>
+    <lastmod>2025-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://aiheadshotgen.com/privacy</loc>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-  
+
   <url>
-    <loc>https://minecraftstyle.online/terms</loc>
-    <lastmod>2024-01-20</lastmod>
+    <loc>https://aiheadshotgen.com/terms</loc>
+    <lastmod>2025-06-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-  -->
 
 </urlset> 
